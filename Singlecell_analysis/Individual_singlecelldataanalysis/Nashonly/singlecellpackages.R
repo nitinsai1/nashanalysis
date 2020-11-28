@@ -1,0 +1,17 @@
+#loading packages
+#install following packages in R neccessary for single cell data analysis
+library(Seurat)
+library(Rtsne)
+library(dplyr)
+library(cowplot)
+library(DESeq2)
+library(MAST)
+library(readr)
+library(patchwork)
+library(data.table)
+library(metap)
+library(data.table)
+library(sctransform)
+library(ggraph)
+library(ggplot2)
+library(clustree)
