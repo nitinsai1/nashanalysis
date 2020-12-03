@@ -1,6 +1,6 @@
 #R code to analyze the Single cell RNA-seq data analysis
 #Data Nash only dataset
-#This script does the following: Removal of clusters, reanalyzing on Tcells clusters, Find Tcells markers, cluster annotation, Feature plots
+#This script does the following: Removal of clusters, reanalyzing on Tcells clusters, Find Tcells markers, cluster annotation, Feature plots, dot plots
 #loading packages
 library(Seurat)
 library(Rtsne)
@@ -79,5 +79,23 @@ nash<- RenameIdents(nash, new.cluster.ids)
 #UMAP
 DimPlot(nash, cols = c("#228B22","#FD1212","#C6C5C5","#02053E","#4A85AE","#F59191","#cfb53b","#5F64BF","#78D9EE","#874CCF",
                        "#814D06","#FFD300","#034D06","#000000","#FFFF00"))
+
+
+#Making the feature dot plot for nash only
+f<-c("FOXP3","TRGC2","TRGC1","TRDC","TRBC2","TRBC1", "KLF2","LAG3","CCL5","IFNG","PDCD1",
+     "IL2RB","SELL","CD69","CXCR6","TNF","PRF1","GZMK","GZMB","KLRG1","IL7R","CCR7",
+     "CD4","CD27","CD8B","CRTAM","CD8A","CCL4","RGS1","SLC4A10","CCR6","KLRB1","ITGA1","TNFRSF9")
+
+#Checkduplidates
+sum(duplicated(f))
+f[f %in% f[(duplicated(f))]]
+#Create unique list of markers
+f1<-unique(f)
+
+# #Feature dot plot
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_colour_gradientn(colours = myPalette(100))
+DotPlot(nash, features = f1,dot.scale = 5) + coord_flip() + 
+  theme(axis.text.x = element_text(angle=90)) + sc
 
 
