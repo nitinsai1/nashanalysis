@@ -23,7 +23,7 @@ This folder contains scripts used to plot: 1) GSEA dot plot and 2) heatmap
 4.	Single cell analysis
 
 This folder contains collection of scripts to analyze the human single cell data.
- 1) Individual single cell nashonly data, 2) fat tissue
+ 1) Individual single cell - nashonly and steatosis only, 2) fat tissue
 
 
 

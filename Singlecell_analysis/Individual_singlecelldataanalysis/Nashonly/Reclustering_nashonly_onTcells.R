@@ -71,9 +71,9 @@ write.csv(nash.markers, 'Nashonly_Tcellsmarkers_1res.csv')
 
 #UMAP analysis Cluster annotation
 current.cluster.ids <- c("0","1","2","3","4","5","6","7","8","9","10","11","12","13","14")
-new.cluster.ids <- c("CD4 memory","CD8 RGS1","Gammadelta effector", "MAIT 1","CD8 effector",
-                     "CD8 CD74","Gammadelta RGS1","MAIT 2",
-                     "CD8 naive","MAIT 3","NKT 1","CD4 naive","CD4 RGS1","NKT 2","CD4 Treg")
+new.cluster.ids <- c("C0 CD4 TOB1","C1 CD8 RGS1","C2 gd GNLY","C3 MAIT KLF2",
+                     "C4 CD8 GNLY FGFBP2","C5 CD8 PLCG2","C6 gd CMC","C7 MAIT NFKBIA",
+                     "C8 CD8 CCR7","C9 MAIT PLCG2","C10 NKT KLRC2","C11 CD4 CCR7","C12 CD4 RGS1","C13 gd CMC1 AREG","C14 CD4 FOXP3")
 names(new.cluster.ids) <- levels(nash)
 nash<- RenameIdents(nash, new.cluster.ids)
 #UMAP
